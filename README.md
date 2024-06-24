@@ -45,6 +45,8 @@ As we are using Llama3 model here, if you dont have Llama3-8B model, you can use
 ollama run llama3
 ```
 
+You can change the default model which is Llama3 in code if you want to.
+
 2. **Start the Svelte development server**
 
 ```
