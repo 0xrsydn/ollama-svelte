@@ -29,7 +29,7 @@ cd ollama-svelte
 npm install
 ```
 
-##Running The Project
+## Running The Project
 
 1. **Start the Ollama server**
 
