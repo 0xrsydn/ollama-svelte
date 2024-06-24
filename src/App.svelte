@@ -7,6 +7,7 @@
   let response = '';
   let loading = false;
   let error = '';
+  let temperature = 0.5; // Default temperature value
 
   async function generateResponse() {
     error = ''; // Clear any previous errors
@@ -16,7 +17,10 @@
     const payload = {
       model: 'llama3',
       prompt: prompt,
-      stream: false
+      stream: false,
+      options: {
+        temperature: temperature // Include temperature in the payload
+      }
     };
 
     try {
@@ -51,6 +55,19 @@
     placeholder="Enter your prompt"
     class="mt-4 p-2 border border-gray-300 rounded-md w-64"
   />
+  <div class="mt-4 flex items-center">
+    <label for="temperature" class="mr-2">Temperature:</label>
+    <input
+      id="temperature"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      bind:value={temperature}
+      class="w-32"
+    />
+    <span class="ml-2">{temperature.toFixed(2)}</span>
+  </div>
   <button
     on:click={generateResponse}
     class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
